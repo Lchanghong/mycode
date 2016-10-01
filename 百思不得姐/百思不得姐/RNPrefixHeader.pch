@@ -1,0 +1,25 @@
+//
+//  RNPrefixHeader.pch
+//  百思不得姐
+//
+//  Created by rain on 16/9/30.
+//  Copyright © 2016年 rain. All rights reserved.
+//
+
+#ifndef RNPrefixHeader_pch
+#define RNPrefixHeader_pch
+
+/***自定义控制器item***/
+#import "UIBarButtonItem+RNExtension.h"
+
+/***自定义log***/
+#ifdef DEBUG
+#define RNLog(...)  NSLog(__VA_ARGS__)
+#else
+#define RNLog(...)
+#endif
+
+#define RNLOGFUNC RNLog(@"%s",__func__);
+
+#endif /* RNPrefixHeader_pch */
+
