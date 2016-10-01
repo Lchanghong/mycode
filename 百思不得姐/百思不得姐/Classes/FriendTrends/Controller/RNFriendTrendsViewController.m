@@ -7,8 +7,10 @@
 //
 
 #import "RNFriendTrendsViewController.h"
+#import "RNFriendsView.h"
 
 @interface RNFriendTrendsViewController ()
+
 
 @end
 
@@ -16,13 +18,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //设置背景色
-    self.view.backgroundColor = RNVIEWBGCOLOR;
+    
     self.navigationItem.title = @"关注";
     
     //创建导航左边按钮
     UIBarButtonItem *leftButton = [UIBarButtonItem itemWithImage:@"friendsRecommentIcon" hightImage:@"friendsRecommentIcon-click" addTarget:self action:@selector(tagClick)];
     self.navigationItem.leftBarButtonItem = leftButton;
+    
+    //自定义view
+    RNFriendsView *view = [[RNFriendsView alloc] init];
+    view.frame = [UIScreen mainScreen].bounds;
+    [self.view addSubview:view];
+    
     
 }
 

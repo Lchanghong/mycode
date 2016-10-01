@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08456354E84E63D43B0585C1 /* Pods______.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB3A91F64CDBFD61047E3AD /* Pods______.framework */; };
+		B7219DF71DA005D600B495CC /* RNFriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = B7219DF61DA005D600B495CC /* RNFriendsView.m */; };
 		B729A8201D9F97B800107A99 /* RNNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B729A81F1D9F97B800107A99 /* RNNavigationController.m */; };
 		B78795731D9F80A300AEC762 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B78795721D9F80A300AEC762 /* main.m */; };
 		B787957E1D9F80A300AEC762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B787957D1D9F80A300AEC762 /* Assets.xcassets */; };
@@ -43,6 +44,8 @@
 /* Begin PBXFileReference section */
 		58EE82A92ED411FB08ECA03C /* Pods-百思不得姐.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐.release.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐.release.xcconfig"; sourceTree = "<group>"; };
 		ABB3A91F64CDBFD61047E3AD /* Pods______.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods______.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7219DF51DA005D600B495CC /* RNFriendsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNFriendsView.h; sourceTree = "<group>"; };
+		B7219DF61DA005D600B495CC /* RNFriendsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNFriendsView.m; sourceTree = "<group>"; };
 		B729A81E1D9F97B800107A99 /* RNNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNNavigationController.h; sourceTree = "<group>"; };
 		B729A81F1D9F97B800107A99 /* RNNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNNavigationController.m; sourceTree = "<group>"; };
 		B787956E1D9F80A300AEC762 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,7 +74,7 @@
 		B78795C41D9F83C500AEC762 /* RNNewPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNNewPostViewController.m; sourceTree = "<group>"; };
 		B78795C81D9F83C500AEC762 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B78795C91D9F83C500AEC762 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B78795D81D9F83DF00AEC762 /* RNPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RNPrefixHeader.pch; path = ../../../RNPrefixHeader.pch; sourceTree = "<group>"; };
+		B78795D81D9F83DF00AEC762 /* RNPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RNPrefixHeader.pch; path = ../../RNPrefixHeader.pch; sourceTree = "<group>"; };
 		D4F87A1C724A5F31E896E059 /* Pods-百思不得姐.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐.debug.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -292,6 +295,8 @@
 		B78795BA1D9F83C500AEC762 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B7219DF51DA005D600B495CC /* RNFriendsView.h */,
+				B7219DF61DA005D600B495CC /* RNFriendsView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -365,6 +370,7 @@
 		B78795C71D9F83C500AEC762 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				B78795D81D9F83DF00AEC762 /* RNPrefixHeader.pch */,
 				B78795C81D9F83C500AEC762 /* AppDelegate.h */,
 				B78795C91D9F83C500AEC762 /* AppDelegate.m */,
 			);
@@ -398,7 +404,6 @@
 		B78795CE1D9F83C500AEC762 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B78795D81D9F83DF00AEC762 /* RNPrefixHeader.pch */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -594,6 +599,7 @@
 				B78795D51D9F83C500AEC762 /* RNNewPostViewController.m in Sources */,
 				B729A8201D9F97B800107A99 /* RNNavigationController.m in Sources */,
 				B78795D01D9F83C500AEC762 /* RNTabBar.m in Sources */,
+				B7219DF71DA005D600B495CC /* RNFriendsView.m in Sources */,
 				B78795D21D9F83C500AEC762 /* RNEssenceViewController.m in Sources */,
 				B78795D11D9F83C500AEC762 /* UIBarButtonItem+RNExtension.m in Sources */,
 				B78795731D9F80A300AEC762 /* main.m in Sources */,
