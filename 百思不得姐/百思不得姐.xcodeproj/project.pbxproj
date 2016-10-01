@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08456354E84E63D43B0585C1 /* Pods______.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB3A91F64CDBFD61047E3AD /* Pods______.framework */; };
+		B729A8201D9F97B800107A99 /* RNNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B729A81F1D9F97B800107A99 /* RNNavigationController.m */; };
 		B78795731D9F80A300AEC762 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B78795721D9F80A300AEC762 /* main.m */; };
 		B787957E1D9F80A300AEC762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B787957D1D9F80A300AEC762 /* Assets.xcassets */; };
 		B787958C1D9F80A300AEC762 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B787958B1D9F80A300AEC762 /* _____Tests.m */; };
@@ -19,7 +21,6 @@
 		B78795D41D9F83C500AEC762 /* RNMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B78795BE1D9F83C500AEC762 /* RNMeViewController.m */; };
 		B78795D51D9F83C500AEC762 /* RNNewPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B78795C41D9F83C500AEC762 /* RNNewPostViewController.m */; };
 		B78795D61D9F83C500AEC762 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B78795C91D9F83C500AEC762 /* AppDelegate.m */; };
-		B78795D71D9F83C500AEC762 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B78795CC1D9F83C500AEC762 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		58EE82A92ED411FB08ECA03C /* Pods-百思不得姐.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐.release.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐.release.xcconfig"; sourceTree = "<group>"; };
+		ABB3A91F64CDBFD61047E3AD /* Pods______.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods______.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B729A81E1D9F97B800107A99 /* RNNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNNavigationController.h; sourceTree = "<group>"; };
+		B729A81F1D9F97B800107A99 /* RNNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNNavigationController.m; sourceTree = "<group>"; };
 		B787956E1D9F80A300AEC762 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B78795721D9F80A300AEC762 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B787957D1D9F80A300AEC762 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,8 +71,8 @@
 		B78795C41D9F83C500AEC762 /* RNNewPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNNewPostViewController.m; sourceTree = "<group>"; };
 		B78795C81D9F83C500AEC762 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B78795C91D9F83C500AEC762 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B78795CC1D9F83C500AEC762 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B78795D81D9F83DF00AEC762 /* RNPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNPrefixHeader.pch; sourceTree = "<group>"; };
+		B78795D81D9F83DF00AEC762 /* RNPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RNPrefixHeader.pch; path = ../../../RNPrefixHeader.pch; sourceTree = "<group>"; };
+		D4F87A1C724A5F31E896E059 /* Pods-百思不得姐.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐.debug.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08456354E84E63D43B0585C1 /* Pods______.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +101,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B7E15BEDEB7B7951B7A8294 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABB3A91F64CDBFD61047E3AD /* Pods______.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8049E22558B253BCF03954B4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D4F87A1C724A5F31E896E059 /* Pods-百思不得姐.debug.xcconfig */,
+				58EE82A92ED411FB08ECA03C /* Pods-百思不得姐.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B78795651D9F80A200AEC762 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +125,8 @@
 				B787958A1D9F80A300AEC762 /* 百思不得姐Tests */,
 				B78795951D9F80A300AEC762 /* 百思不得姐UITests */,
 				B787956F1D9F80A300AEC762 /* Products */,
+				8049E22558B253BCF03954B4 /* Pods */,
+				0B7E15BEDEB7B7951B7A8294 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,7 +155,6 @@
 				B787957D1D9F80A300AEC762 /* Assets.xcassets */,
 				B78795821D9F80A300AEC762 /* Info.plist */,
 				B78795721D9F80A300AEC762 /* main.m */,
-				B78795D81D9F83DF00AEC762 /* RNPrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -182,6 +206,8 @@
 			children = (
 				B78795A71D9F83C500AEC762 /* RNBaseController.h */,
 				B78795A81D9F83C500AEC762 /* RNBaseController.m */,
+				B729A81E1D9F97B800107A99 /* RNNavigationController.h */,
+				B729A81F1D9F97B800107A99 /* RNNavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -349,7 +375,6 @@
 			isa = PBXGroup;
 			children = (
 				B78795CB1D9F83C500AEC762 /* Controller */,
-				B78795CC1D9F83C500AEC762 /* Info.plist */,
 				B78795CD1D9F83C500AEC762 /* Model */,
 				B78795CE1D9F83C500AEC762 /* View */,
 			);
@@ -373,6 +398,7 @@
 		B78795CE1D9F83C500AEC762 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B78795D81D9F83DF00AEC762 /* RNPrefixHeader.pch */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -384,9 +410,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B787959B1D9F80A300AEC762 /* Build configuration list for PBXNativeTarget "百思不得姐" */;
 			buildPhases = (
+				F55B70B91ECDFCBFD94FDD3B /* [CP] Check Pods Manifest.lock */,
 				B787956A1D9F80A300AEC762 /* Sources */,
 				B787956B1D9F80A300AEC762 /* Frameworks */,
 				B787956C1D9F80A300AEC762 /* Resources */,
+				B5CF5674EB7311205134D59E /* [CP] Embed Pods Frameworks */,
+				98A18F7DF2FCD9654D13BBDE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -439,6 +468,7 @@
 		B78795661D9F80A200AEC762 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = RN;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = rain;
 				TargetAttributes = {
@@ -484,7 +514,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B78795D71D9F83C500AEC762 /* Info.plist in Resources */,
 				B787957E1D9F80A300AEC762 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,6 +534,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		98A18F7DF2FCD9654D13BBDE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5CF5674EB7311205134D59E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F55B70B91ECDFCBFD94FDD3B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B787956A1D9F80A300AEC762 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -515,6 +592,7 @@
 				B78795D61D9F83C500AEC762 /* AppDelegate.m in Sources */,
 				B78795CF1D9F83C500AEC762 /* RNBaseController.m in Sources */,
 				B78795D51D9F83C500AEC762 /* RNNewPostViewController.m in Sources */,
+				B729A8201D9F97B800107A99 /* RNNavigationController.m in Sources */,
 				B78795D01D9F83C500AEC762 /* RNTabBar.m in Sources */,
 				B78795D21D9F83C500AEC762 /* RNEssenceViewController.m in Sources */,
 				B78795D11D9F83C500AEC762 /* UIBarButtonItem+RNExtension.m in Sources */,
@@ -646,6 +724,7 @@
 		};
 		B787959C1D9F80A300AEC762 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4F87A1C724A5F31E896E059 /* Pods-百思不得姐.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -653,6 +732,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "百思不得姐/RNPrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.qq.471017370.-----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -661,6 +741,7 @@
 		};
 		B787959D1D9F80A300AEC762 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58EE82A92ED411FB08ECA03C /* Pods-百思不得姐.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -668,6 +749,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "百思不得姐/RNPrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.qq.471017370.-----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -739,6 +821,7 @@
 				B787959D1D9F80A300AEC762 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B787959E1D9F80A300AEC762 /* Build configuration list for PBXNativeTarget "百思不得姐Tests" */ = {
 			isa = XCConfigurationList;
@@ -747,6 +830,7 @@
 				B78795A01D9F80A300AEC762 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B78795A11D9F80A300AEC762 /* Build configuration list for PBXNativeTarget "百思不得姐UITests" */ = {
 			isa = XCConfigurationList;
@@ -755,6 +839,7 @@
 				B78795A31D9F80A300AEC762 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

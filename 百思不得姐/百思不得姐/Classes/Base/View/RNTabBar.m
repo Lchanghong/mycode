@@ -49,6 +49,10 @@
 {
     if (self = [super initWithFrame:frame]) {
         
+        //设置TabBarTool背景颜色
+        self.backgroundImage = [UIImage imageNamed:@"tabbar-light"];
+
+        
         //创建publish按钮
         UIButton *publishButton = [UIButton buttonWithType:UIButtonTypeCustom];
         //设置按钮背景图片
@@ -59,6 +63,7 @@
         [self addSubview:publishButton];
         self.publishButton = publishButton;
         
+       
     }
 
     return self;

@@ -19,6 +19,10 @@
 #define RNLog(...)
 #endif
 
+/***设置APP背景色***/
+#define RNVIEWBGCOLOR [UIColor colorWithRed:225/255.0 green:225/255.0 blue:225/255.0 alpha:1.0];
+
+
 #define RNLOGFUNC RNLog(@"%s",__func__);
 
 #endif /* RNPrefixHeader_pch */

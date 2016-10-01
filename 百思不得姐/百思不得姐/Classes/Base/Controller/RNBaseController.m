@@ -12,6 +12,7 @@
 #import "RNNewPostViewController.h"
 #import "RNFriendTrendsViewController.h"
 #import "RNTabBar.h"
+#import "RNNavigationController.h"
 
 @interface RNBaseController ()
 
@@ -19,14 +20,29 @@
 
 @implementation RNBaseController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
+/***第一次创建时设置tabBar样式***/
++(void)initialize
+{
     //创建item样式
     UITabBarItem *item = [UITabBarItem appearance];
     
-    //设置全局item样式
-    [self setupItemAppearance:item];
+    //设置默认字体大小,颜色属性
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+    attrs[NSFontAttributeName] = [UIFont systemFontOfSize:12];
+    attrs[NSForegroundColorAttributeName] = [UIColor grayColor];
+    [ item setTitleTextAttributes:attrs forState:UIControlStateNormal];
+    
+    //设置选中字体大小,颜色属性
+    NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
+    selectedAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:19];
+    selectedAttrs[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
+    [ item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
+    
+    RNLOGFUNC;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
     //创建精华控制器
     RNEssenceViewController *EssenceVC = [[RNEssenceViewController alloc] init];
@@ -46,22 +62,8 @@
     
     //更换自定义TabBar
     [self setValue:[[RNTabBar alloc] init] forKey:@"TabBar"];
-  
-}
-/***设置TabBarItem字体的颜色,大小***/
-- (void)setupItemAppearance:(UITabBarItem *)item{
     
-    //设置默认字体大小,颜色属性
-    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-    attrs[NSFontAttributeName] = [UIFont systemFontOfSize:12];
-    attrs[NSForegroundColorAttributeName] = [UIColor grayColor];
-    [ item setTitleTextAttributes:attrs forState:UIControlStateNormal];
-    
-    //设置选中字体大小,颜色属性
-    NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
-    selectedAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:19];
-    selectedAttrs[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
-    [ item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
+     
 }
 
 /***创建子控制器***/
@@ -74,7 +76,7 @@
     VC.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage];
     
     //添加子控制器到导航控制器
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:VC];
+    RNNavigationController *nav = [[RNNavigationController alloc] initWithRootViewController:VC];
     [self addChildViewController:nav];
 }
 

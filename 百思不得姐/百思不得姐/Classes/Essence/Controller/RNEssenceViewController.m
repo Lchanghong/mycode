@@ -16,11 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor greenColor];
+    //设置背景色
+    self.view.backgroundColor = RNVIEWBGCOLOR;
     
     //设置导航栏内容
-    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:
-                                     [UIImage imageNamed:@"MainTitle"]];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
     
     //创建控制器左边按钮
     UIBarButtonItem *leftBarbtnItem = [UIBarButtonItem itemWithImage:@"MainTagSubIcon" hightImage:@"MainTagSubIconClick" addTarget:self action:@selector(tagClick)];
@@ -33,18 +33,14 @@
 - (void)tagClick
 {
     RNLOGFUNC;
-
-
 }
 
-/*
-#pragma mark - Navigation
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    UIViewController *VC = [[UIViewController alloc] init];
+    VC.view.backgroundColor = [UIColor redColor];
+    [self.navigationController pushViewController:VC animated:YES ];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
-*/
 
 @end

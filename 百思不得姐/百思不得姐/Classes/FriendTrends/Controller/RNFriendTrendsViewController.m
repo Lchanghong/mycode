@@ -16,13 +16,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
-    self.view.backgroundColor = [UIColor yellowColor];
-    self.navigationItem.title = @"我的关注";
+    //设置背景色
+    self.view.backgroundColor = RNVIEWBGCOLOR;
+    self.navigationItem.title = @"关注";
     
-    //创建控制器左边按钮
-    UIBarButtonItem *friendsButton = [UIBarButtonItem itemWithImage:@"friendsRecommentIcon" hightImage:@"friendsRecommentIcon-click" addTarget:self action:@selector(tagClick)];
-    self.navigationItem.leftBarButtonItem = friendsButton;
+    //创建导航左边按钮
+    UIBarButtonItem *leftButton = [UIBarButtonItem itemWithImage:@"friendsRecommentIcon" hightImage:@"friendsRecommentIcon-click" addTarget:self action:@selector(tagClick)];
+    self.navigationItem.leftBarButtonItem = leftButton;
+    
 }
 
 - (void)tagClick

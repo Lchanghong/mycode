@@ -16,8 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.view.backgroundColor = [UIColor grayColor];
+    //设置背景色
+    self.view.backgroundColor = RNVIEWBGCOLOR;
+    
     //设置导航栏内容
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:
                                      [UIImage imageNamed:@"MainTitle"]];

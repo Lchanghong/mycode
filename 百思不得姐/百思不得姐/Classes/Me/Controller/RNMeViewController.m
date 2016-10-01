@@ -16,8 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //设置背景色
+    self.view.backgroundColor = RNVIEWBGCOLOR;
+    self.navigationItem.title = @"我的";
 
-    self.view.backgroundColor = [UIColor blueColor];
     //创建控制器左边按钮
     UIBarButtonItem *setButton = [UIBarButtonItem itemWithImage:@"mine-setting-icon" hightImage:@"mine-setting-icon-click" addTarget:self action:@selector(setTagClick)];
         
