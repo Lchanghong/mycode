@@ -8,6 +8,7 @@
 
 #import "RNFriendTrendsViewController.h"
 #import "RNFriendsView.h"
+#import "RNRecommendViewController.h"
 
 @interface RNFriendTrendsViewController ()
 
@@ -35,7 +36,10 @@
 
 - (void)tagClick
 {
-    RNLOGFUNC;
+    //创建推荐关注控制器
+    RNRecommendViewController *recommendVC = [[RNRecommendViewController alloc] init];
+    [self.navigationController pushViewController:recommendVC animated:YES];
+    
 }
 /*
 #pragma mark - Navigation
