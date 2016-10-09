@@ -13,7 +13,7 @@
             <rect key="frame" x="0.0" y="0.0" width="391" height="224"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="391" height="223.5"/>
+                <frame key="frameInset" width="391" height="223"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qQv-CA-1IS" userLabel="Icon">
@@ -60,6 +60,12 @@
                             <constraint firstAttribute="height" constant="50" id="eb5-fM-ObA"/>
                         </constraints>
                     </imageView>
+                    <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPF-Dd-MHT">
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="0m8-pS-4rK"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="qQv-CA-1IS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="23Z-cF-KgJ"/>
@@ -72,8 +78,11 @@
                     <constraint firstItem="Mlz-ip-iIb" firstAttribute="top" secondItem="Eq5-F1-5XS" secondAttribute="top" id="Le0-PP-IBY"/>
                     <constraint firstItem="cqu-tn-3PY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="NQP-a0-dij"/>
                     <constraint firstAttribute="trailingMargin" secondItem="3TZ-mZ-e43" secondAttribute="trailing" constant="10" id="RhQ-kM-dY5"/>
+                    <constraint firstItem="IPF-Dd-MHT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="WxE-6T-LVT"/>
                     <constraint firstItem="4dx-vc-t51" firstAttribute="leading" secondItem="Eq5-F1-5XS" secondAttribute="leading" id="a2L-xu-oDf"/>
+                    <constraint firstAttribute="trailing" secondItem="IPF-Dd-MHT" secondAttribute="trailing" id="mkn-JD-0Bn"/>
                     <constraint firstItem="4dx-vc-t51" firstAttribute="top" secondItem="Eq5-F1-5XS" secondAttribute="bottom" constant="10" id="nxf-WU-Pka"/>
+                    <constraint firstAttribute="bottom" secondItem="IPF-Dd-MHT" secondAttribute="bottom" id="pa2-HE-6rs"/>
                     <constraint firstItem="Eq5-F1-5XS" firstAttribute="leading" secondItem="qQv-CA-1IS" secondAttribute="trailing" constant="10" id="xc5-rf-Oz7"/>
                 </constraints>
             </tableViewCellContentView>
@@ -83,7 +92,7 @@
                 <outlet property="headerImageView" destination="cqu-tn-3PY" id="Qfz-HQ-ay5"/>
                 <outlet property="screenNameLable" destination="Eq5-F1-5XS" id="0j1-Yh-Q87"/>
             </connections>
-            <point key="canvasLocation" x="-198" y="85"/>
+            <point key="canvasLocation" x="-198.5" y="85"/>
         </tableViewCell>
     </objects>
     <resources>

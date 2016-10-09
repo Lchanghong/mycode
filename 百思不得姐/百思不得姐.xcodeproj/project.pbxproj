@@ -10,10 +10,11 @@
 		08456354E84E63D43B0585C1 /* Pods______.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB3A91F64CDBFD61047E3AD /* Pods______.framework */; };
 		B70CC4EB1DA03ADF0079F071 /* RNRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B70CC4EA1DA03ADF0079F071 /* RNRecommendViewController.m */; };
 		B71D08531DA0BCA4001A3071 /* Log+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B71D08521DA0BCA4001A3071 /* Log+extension.m */; };
-		B71D08561DA0CBD0001A3071 /* RNCategoryTag.m in Sources */ = {isa = PBXBuildFile; fileRef = B71D08551DA0CBD0001A3071 /* RNCategoryTag.m */; };
 		B71D085C1DA0D9B5001A3071 /* RNCategoryTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B71D085B1DA0D9B5001A3071 /* RNCategoryTagCell.m */; };
 		B71ECCC31DA5FA5400DA3AC6 /* member_ diamond_icon.gif in Resources */ = {isa = PBXBuildFile; fileRef = B71ECCC11DA5FA5400DA3AC6 /* member_ diamond_icon.gif */; };
 		B71ECCC41DA5FA5400DA3AC6 /* member_ diamond_iconN.gif in Resources */ = {isa = PBXBuildFile; fileRef = B71ECCC21DA5FA5400DA3AC6 /* member_ diamond_iconN.gif */; };
+		B71ECCCA1DA9E27900DA3AC6 /* HWLeftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B71ECCC91DA9E27900DA3AC6 /* HWLeftModel.m */; };
+		B71ECCCD1DA9E3A300DA3AC6 /* HWRightModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B71ECCCC1DA9E3A300DA3AC6 /* HWRightModel.m */; };
 		B7219DF71DA005D600B495CC /* RNFriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = B7219DF61DA005D600B495CC /* RNFriendsView.m */; };
 		B729A8201D9F97B800107A99 /* RNNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B729A81F1D9F97B800107A99 /* RNNavigationController.m */; };
 		B76926631DA368B90071881A /* RNCelebrityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B76926611DA368B90071881A /* RNCelebrityTableViewCell.m */; };
@@ -57,12 +58,14 @@
 		B70CC4EA1DA03ADF0079F071 /* RNRecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNRecommendViewController.m; sourceTree = "<group>"; };
 		B71D08511DA0BC71001A3071 /* Log+extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Log+extension.h"; sourceTree = "<group>"; };
 		B71D08521DA0BCA4001A3071 /* Log+extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Log+extension.m"; sourceTree = "<group>"; };
-		B71D08541DA0CBD0001A3071 /* RNCategoryTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCategoryTag.h; sourceTree = "<group>"; };
-		B71D08551DA0CBD0001A3071 /* RNCategoryTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNCategoryTag.m; sourceTree = "<group>"; };
 		B71D085A1DA0D9B5001A3071 /* RNCategoryTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCategoryTagCell.h; sourceTree = "<group>"; };
 		B71D085B1DA0D9B5001A3071 /* RNCategoryTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNCategoryTagCell.m; sourceTree = "<group>"; };
 		B71ECCC11DA5FA5400DA3AC6 /* member_ diamond_icon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "member_ diamond_icon.gif"; sourceTree = "<group>"; };
 		B71ECCC21DA5FA5400DA3AC6 /* member_ diamond_iconN.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "member_ diamond_iconN.gif"; sourceTree = "<group>"; };
+		B71ECCC81DA9E27900DA3AC6 /* HWLeftModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWLeftModel.h; sourceTree = "<group>"; };
+		B71ECCC91DA9E27900DA3AC6 /* HWLeftModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWLeftModel.m; sourceTree = "<group>"; };
+		B71ECCCB1DA9E3A300DA3AC6 /* HWRightModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWRightModel.h; sourceTree = "<group>"; };
+		B71ECCCC1DA9E3A300DA3AC6 /* HWRightModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWRightModel.m; sourceTree = "<group>"; };
 		B7219DF51DA005D600B495CC /* RNFriendsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNFriendsView.h; sourceTree = "<group>"; };
 		B7219DF61DA005D600B495CC /* RNFriendsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNFriendsView.m; sourceTree = "<group>"; };
 		B729A81E1D9F97B800107A99 /* RNNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNNavigationController.h; sourceTree = "<group>"; };
@@ -316,10 +319,12 @@
 		B78795B91D9F83C500AEC762 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B71D08541DA0CBD0001A3071 /* RNCategoryTag.h */,
 				B783C4161DA55E2800AD8C2A /* RNUsers.h */,
 				B783C4171DA55E2800AD8C2A /* RNUsers.m */,
-				B71D08551DA0CBD0001A3071 /* RNCategoryTag.m */,
+				B71ECCC81DA9E27900DA3AC6 /* HWLeftModel.h */,
+				B71ECCC91DA9E27900DA3AC6 /* HWLeftModel.m */,
+				B71ECCCB1DA9E3A300DA3AC6 /* HWRightModel.h */,
+				B71ECCCC1DA9E3A300DA3AC6 /* HWRightModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -635,12 +640,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B78795D31D9F83C500AEC762 /* RNFriendTrendsViewController.m in Sources */,
+				B71ECCCD1DA9E3A300DA3AC6 /* HWRightModel.m in Sources */,
 				B78795D41D9F83C500AEC762 /* RNMeViewController.m in Sources */,
 				B783C4181DA55E2800AD8C2A /* RNUsers.m in Sources */,
 				B78795D61D9F83C500AEC762 /* AppDelegate.m in Sources */,
 				B78795CF1D9F83C500AEC762 /* RNBaseController.m in Sources */,
 				B78795D51D9F83C500AEC762 /* RNNewPostViewController.m in Sources */,
 				B71D08531DA0BCA4001A3071 /* Log+extension.m in Sources */,
+				B71ECCCA1DA9E27900DA3AC6 /* HWLeftModel.m in Sources */,
 				B729A8201D9F97B800107A99 /* RNNavigationController.m in Sources */,
 				B71D085C1DA0D9B5001A3071 /* RNCategoryTagCell.m in Sources */,
 				B78795D01D9F83C500AEC762 /* RNTabBar.m in Sources */,
@@ -649,7 +656,6 @@
 				B76926631DA368B90071881A /* RNCelebrityTableViewCell.m in Sources */,
 				B78795D21D9F83C500AEC762 /* RNEssenceViewController.m in Sources */,
 				B78795D11D9F83C500AEC762 /* UIBarButtonItem+RNExtension.m in Sources */,
-				B71D08561DA0CBD0001A3071 /* RNCategoryTag.m in Sources */,
 				B78795731D9F80A300AEC762 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

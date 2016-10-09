@@ -9,20 +9,35 @@
 #import "RNRecommendViewController.h"
 #import "RNCategoryTagCell.h"
 #import "RNCelebrityTableViewCell.h"
-#import "RNCategoryTag.h"
+//#import "RNCategoryTag.h"
 #import <AFNetworking/AFNetworking.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <MJExtension/MJExtension.h>
 #import "RNUsers.h"
+#import <MJRefresh/MJRefresh.h>
+#import "HWLeftModel.h"
+#import "HWRightModel.h"
 
-@interface RNRecommendViewController ()<UITableViewDataSource,UITableViewDelegate>{
+#define HWRNCategoryTag _Categories[_CategoryView.indexPathForSelectedRow.row]
 
-    UINib * nib;
-}
+@interface RNRecommendViewController ()<UITableViewDataSource,UITableViewDelegate>
+
 /***左边标签数据***/
-@property (strong, nonatomic) NSArray *Categories;
+//@property (strong, nonatomic) NSArray *Categories;
 /***右边用户数据***/
-@property (strong, nonatomic) NSArray *UsersArray;
+//@property (strong, nonatomic) NSArray *UsersArray;
+
+
+/**
+ 左边的索引
+ */
+@property (assign, nonatomic) NSInteger leftIndex;
+@property (assign, nonatomic) NSInteger rightTabelViewPage;
+
+@property (strong, nonatomic) NSArray *leftDataSoure;
+//@property (strong, nonatomic) NSMutableArray *rightModelArray;
+//@property (strong, nonatomic) HWRightModel *rightModel;
+
 /***左边tableView***/
 @property (weak, nonatomic) UITableView *CategoryView;
 /***右边tableView***/
@@ -34,9 +49,11 @@
 static NSString *const UserID = @"user";
 static NSString *const TagID = @"tag";
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
   
+    self.rightTabelViewPage = 1;
     //设置导航标题
     self.title = @"推荐关注";
     //设置背景颜色
@@ -45,15 +62,34 @@ static NSString *const TagID = @"tag";
     //设置子控件
     [self setupSubviews];
     
-    //注册cell
-    [_CelebrityView registerNib:[UINib nibWithNibName:NSStringFromClass([RNCelebrityTableViewCell class]) bundle:nil] forCellReuseIdentifier:UserID];
-    _CelebrityView.rowHeight = 60;
-    
-    //发送请求
+    //左边tag发送请求
     [self tagSendDate];
+    
+    //添加刷新控件
+    [self setupRefresh];
 }
 
-#pragma mark--左边标签发送数据请求
+//- (HWRightModel *)rightModel{
+//    if (!_rightModel) {
+//        _rightModel = [[HWRightModel alloc] init];
+//    }
+//    return _rightModel;
+//}
+
+/***添加刷新控件***/
+- (void) setupRefresh
+{
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreUsers)];
+    [footer setTitle:@"全部加载完毕!" forState:MJRefreshStateNoMoreData];
+    [footer setTitle:@"点击或上拉加载更多数据!" forState:MJRefreshStateIdle];
+    [footer setTitle:@"正在加载更多数据..." forState:MJRefreshStateRefreshing];
+    _CelebrityView.mj_footer = footer;
+
+    _CelebrityView.mj_footer.hidden = YES;
+}
+
+#pragma mark--发送数据请求
+/***左边发请求***/
 - (void)tagSendDate
 {
     NSString *url = @"http://api.budejie.com/api/api_open.php";
@@ -61,25 +97,111 @@ static NSString *const TagID = @"tag";
     params[@"a"] = @"category";
     params[@"c"] = @"subscribe";
     
-    
+    __weak typeof(self) weakSelf = self;
     [[AFHTTPSessionManager manager] GET:url parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
         RNLog(@" %@ ", downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        RNLog(@"请求成功%@",responseObject[@"list"]);
         //字典数组转模型数组
-        _Categories = [RNCategoryTag mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        weakSelf.leftDataSoure = [HWLeftModel mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         //刷新表格
-        [_CategoryView reloadData];
+        [weakSelf.CategoryView reloadData];
         
         [SVProgressHUD dismiss];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         RNLog(@"请求失败%@",error);
-        
+        [weakSelf.CelebrityView.mj_footer endRefreshing];
         [SVProgressHUD showErrorWithStatus:@"加载失败!"];
     }];
 
-
 }
+
+/***右边发请求***/
+
+- (void) usersSendDate
+{
+    HWLeftModel *leftModel = self.leftDataSoure[_CategoryView.indexPathForSelectedRow.row];
+    
+    //发送请求
+    NSString *url = @"http://api.budejie.com/api/api_open.php";
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"list";
+    params[@"c"] = @"subscribe";
+    params[@"category_id"] = @(leftModel.ID);
+    
+    __weak typeof(self) weakSelf = self;
+ 
+    [[AFHTTPSessionManager manager] GET:url parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
+        RNLog(@" %@ ", downloadProgress);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        HWRightModel *rightModel = [HWRightModel mj_objectWithKeyValues:responseObject];
+        rightModel.users = [RNUsers mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        leftModel.rightModel = rightModel;
+        NSLog(@"-->> leftModel.rightModel:%@", leftModel.rightModel);
+        
+        //刷新右边表格
+        [weakSelf.CelebrityView reloadData];
+        [weakSelf.CelebrityView.mj_footer endRefreshing];
+    
+        if(rightModel.users.count == 0){//没有数据
+            weakSelf.CelebrityView.mj_footer.hidden = YES;
+            return;
+            
+        }else if (rightModel.users.count == rightModel.total) {//只有一页数据
+            [weakSelf.CelebrityView.mj_footer endRefreshingWithNoMoreData];
+        }
+        
+        weakSelf.CelebrityView.mj_footer.hidden = NO;
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        RNLog(@" %@ ", error);
+        [weakSelf.CelebrityView.mj_footer endRefreshing];
+    }];
+}
+
+- (void) loadMoreUsers
+{
+    self.rightTabelViewPage++;
+    HWLeftModel *leftModel = self.leftDataSoure[_CategoryView.indexPathForSelectedRow.row];
+    
+    //发送请求
+    NSString *url = @"http://api.budejie.com/api/api_open.php";
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"list";
+    params[@"c"] = @"subscribe";
+    params[@"category_id"] = @(leftModel.ID);
+    params[@"page"] = @(self.rightTabelViewPage);
+    
+    __weak typeof(self) weakSelf = self;
+    [[AFHTTPSessionManager manager] GET:url parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
+        RNLog(@" %@ ", downloadProgress);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        HWRightModel *rightModel = leftModel.rightModel;
+        NSArray *array = [RNUsers mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        [rightModel.users addObjectsFromArray:array];
+        rightModel.next_page = [responseObject[@"next_page"] integerValue];
+        leftModel.rightModel = rightModel;
+        NSLog(@"-->> leftModel.rightModel:%@", leftModel.rightModel);
+        
+        //刷新右边表格
+        [weakSelf.CelebrityView reloadData];
+        
+        //结束刷新状态
+        [weakSelf.CelebrityView.mj_footer endRefreshing];
+        
+        //判断是否还有数据
+        if (rightModel.next_page > rightModel.total_page) {
+            [weakSelf.CelebrityView.mj_footer endRefreshingWithNoMoreData];
+        }
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        RNLog(@" %@ ", error);
+        [weakSelf.CelebrityView.mj_footer endRefreshing];
+    }];
+}
+
 
 #pragma mark--创建子tableView
 -(void) setupSubviews
@@ -102,6 +224,7 @@ static NSString *const TagID = @"tag";
     //创建右侧tableView
     UITableView *CelebrityTV = [[UITableView alloc] init ];
     CelebrityTV.backgroundColor = [UIColor whiteColor];
+    CelebrityTV.separatorStyle = UITableViewCellSeparatorStyleNone;
     CelebrityTV.dataSource =self;
     CelebrityTV.delegate =self;
     CGFloat X = self.CategoryView.frame.size.width;
@@ -109,13 +232,16 @@ static NSString *const TagID = @"tag";
     CGFloat width = self.view.bounds.size.width - X;
     CGFloat height = [UIScreen mainScreen].bounds.size.height - 64 - 49;
     CelebrityTV.frame = CGRectMake(X,Y , width, height);
-    CelebrityTV.tableFooterView = [[UIView alloc] init ] ;
+    
+    //集成刷新控件
+//    [self setupRefresh];
     
     [self.view addSubview:CelebrityTV];
     _CelebrityView = CelebrityTV;
     
-    UINib *nib1 = [UINib nibWithNibName:@"RNCelebrityTableViewCell" bundle:nil];
-    [self.CelebrityView registerNib:nib1 forCellReuseIdentifier:UserID];
+    //注册cell
+    [_CelebrityView registerNib:[UINib nibWithNibName:NSStringFromClass([RNCelebrityTableViewCell class]) bundle:nil] forCellReuseIdentifier:UserID];
+    _CelebrityView.rowHeight = 60;
 
     
 }
@@ -124,13 +250,16 @@ static NSString *const TagID = @"tag";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (tableView == _CategoryView) {
-        return _Categories.count;
+    if (tableView == _CategoryView) {//左边
+        return _leftDataSoure.count;
     }else{
-        return _UsersArray.count;
-    
+        
+        HWLeftModel *leftModel = self.leftDataSoure[self.leftIndex];
+        HWRightModel *rightModel = leftModel.rightModel;
+        
+        self.CelebrityView.mj_footer.hidden = (rightModel.users.count == 0);
+        return rightModel.users.count;
     }
-    
 
 }
 
@@ -145,7 +274,7 @@ static NSString *const TagID = @"tag";
             Tagcell = [[RNCategoryTagCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TagID];
         }
         //设置cell数据以及背景色
-        Tagcell.category = self.Categories[indexPath.row];
+        Tagcell.model = self.leftDataSoure[indexPath.row];
         Tagcell.backgroundColor = RNVIEWBGCOLOR;
         Tagcell.selectionStyle = UITableViewCellSelectionStyleNone;
         [Tagcell.textLabel setFont:[UIFont boldSystemFontOfSize:14]];
@@ -154,10 +283,10 @@ static NSString *const TagID = @"tag";
     }else{//返回右边
     
         RNCelebrityTableViewCell *userCell = [tableView dequeueReusableCellWithIdentifier:UserID ];
-        userCell.user = _UsersArray[indexPath.row];
-        
+        HWLeftModel *leftModel = self.leftDataSoure[self.leftIndex];
+        HWRightModel *rightModel = leftModel.rightModel;
+        userCell.user = rightModel.users[indexPath.row];
         return userCell;
-    
     }
     
 }
@@ -167,32 +296,33 @@ static NSString *const TagID = @"tag";
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //获取选中的模型
-    RNCategoryTag * selectedCell = self.Categories[indexPath.row];
-    RNLog(@"%@",selectedCell.name);
+    self.leftIndex = indexPath.row;
+    self.CelebrityView.mj_footer.hidden = YES;
+    self.rightTabelViewPage = 1;
     
-    //发送请求
-     NSString *url = @"http://api.budejie.com/api/api_open.php";
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = @"list";
-    params[@"c"] = @"subscribe";
-    params[@"category_id"] = @(selectedCell.id);
-    [[AFHTTPSessionManager manager] GET:url parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
-        RNLog(@" %@ ", downloadProgress);
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        RNLog(@" %@ ", responseObject[@"list"]);
+    HWLeftModel *leftModel = self.leftDataSoure[self.leftIndex];
+    HWRightModel *rightModel = leftModel.rightModel;
+    
+    if (rightModel) {//右边的数据源有数据
         
-        //字典数组转模型
-       _UsersArray = [RNUsers mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        [self.CelebrityView reloadData];
         
-        RNLog(@" %@ ",_UsersArray);
+        if(rightModel.users.count == 0){//没有数据
+            self.CelebrityView.mj_footer.hidden = YES;
+            
+        }else if (rightModel.users.count == rightModel.total || rightModel.next_page > rightModel.total_page) {//只有一页数据/没有更多数据
+            [self.CelebrityView.mj_footer endRefreshingWithNoMoreData];
+        }
+    
         
-        //刷新右边表格
-        [_CelebrityView reloadData];
+    } else {
+        //刷新表格清除之前选中的Tag数据
+        [self.CelebrityView reloadData];
         
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        RNLog(@" %@ ", error);
-    }];
+        //请求数据
+        [self usersSendDate];
+    }
+   
 }
 
 @end

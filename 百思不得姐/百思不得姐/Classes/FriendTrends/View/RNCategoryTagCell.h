@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HWLeftModel.h"
 
-@class RNCategoryTag;
+//@class RNCategoryTag;
 @interface RNCategoryTagCell : UITableViewCell
 
 /***左边标签模型***/
-@property (strong, nonatomic) RNCategoryTag *category;
+//@property (strong, nonatomic) RNCategoryTag *category;
+
+@property (strong, nonatomic) HWLeftModel *model;
 @end

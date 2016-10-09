@@ -7,7 +7,7 @@
 //
 
 #import "RNCategoryTagCell.h"
-#import "RNCategoryTag.h"
+//#import "RNCategoryTag.h"
 
 @interface RNCategoryTagCell ()
 //左边选中指示条
@@ -16,14 +16,9 @@
 @end
 @implementation RNCategoryTagCell
 
-/***重置set设置数据***/
-- (void) setCategory:(RNCategoryTag *)category
+- (void)setModel:(HWLeftModel *)model
 {
-    _category =category;
-    
-    self.textLabel.text = category.name;
-    
-    
+    self.textLabel.text = model.name;
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
